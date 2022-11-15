@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "0a757f00-8f0e-4407-b258-20285daed4d4",
+		"name": "Api-Kendaraan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19220257"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"susilo\",\r\n    \"email\" : \"susilo@mailinator.com\",\r\n    \"password\" : \"Welcome123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-kendaraan.test/api/register",
+					"protocol": "http",
+					"host": [
+						"api-kendaraan",
+						"test"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"tri@mailinator.com\",\r\n    \"password\" : \"Welcome123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-kendaraan.test/api/login",
+					"protocol": "http",
+					"host": [
+						"api-kendaraan",
+						"test"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get kendaraan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWtlbmRhcmFhbi50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY2ODQ3OTA4MSwiZXhwIjoxNjY4NDgyNjgxLCJuYmYiOjE2Njg0NzkwODEsImp0aSI6IkpVMzJiWXNmcW1HdE1XTTAiLCJzdWIiOiI2MzcxYTFlZjg5NzQ3Y2IxZDgwNTcwMTIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xBnhHaJJP6zoTxaY3qDcANV_gnFLJUfusLT3ItnoouI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-kendaraan.test/api/kendaraan",
+					"protocol": "http",
+					"host": [
+						"api-kendaraan",
+						"test"
+					],
+					"path": [
+						"api",
+						"kendaraan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Kendaraan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWtlbmRhcmFhbi50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY2ODQ4MjczNCwiZXhwIjoxNjY4NDg2MzM0LCJuYmYiOjE2Njg0ODI3MzQsImp0aSI6Ill5c2NvcHlLUGJRdUNhWU4iLCJzdWIiOiI2MzcxYTFlZjg5NzQ3Y2IxZDgwNTcwMTIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pF3gAN-FVIu4gzw5ZVdEfQSjqZVM_NK05S8Kl7mOrNs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tahun\" : \"2003\",\r\n    \"warna\" : \"Biru Telor Asin\",\r\n    \"harga\" : 2150000,\r\n    \"stok\" : 4,\r\n    \"tipe\" : {\r\n        \"kendaraan\" : \"motor\",\r\n        \"mesin\" : \"100\",\r\n        \"suspensi\" : \"empuk\",\r\n        \"transmisi\" : \"manual\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-kendaraan.test/api/kendaraan/store",
+					"protocol": "http",
+					"host": [
+						"api-kendaraan",
+						"test"
+					],
+					"path": [
+						"api",
+						"kendaraan",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get kendaraan/find?type=mobil",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWtlbmRhcmFhbi50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY2ODQ4MjczNCwiZXhwIjoxNjY4NDg2MzM0LCJuYmYiOjE2Njg0ODI3MzQsImp0aSI6Ill5c2NvcHlLUGJRdUNhWU4iLCJzdWIiOiI2MzcxYTFlZjg5NzQ3Y2IxZDgwNTcwMTIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pF3gAN-FVIu4gzw5ZVdEfQSjqZVM_NK05S8Kl7mOrNs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-kendaraan.test/api/kendaraan/find?kendaraan=motor",
+					"protocol": "http",
+					"host": [
+						"api-kendaraan",
+						"test"
+					],
+					"path": [
+						"api",
+						"kendaraan",
+						"find"
+					],
+					"query": [
+						{
+							"key": "kendaraan",
+							"value": "motor"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post kendaraan/selling",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWtlbmRhcmFhbi50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY2ODQ4MjczNCwiZXhwIjoxNjY4NDg2MzM0LCJuYmYiOjE2Njg0ODI3MzQsImp0aSI6Ill5c2NvcHlLUGJRdUNhWU4iLCJzdWIiOiI2MzcxYTFlZjg5NzQ3Y2IxZDgwNTcwMTIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pF3gAN-FVIu4gzw5ZVdEfQSjqZVM_NK05S8Kl7mOrNs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : \"6372f078033e91d61f073132\",\r\n    \"qty\" : 1\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-kendaraan.test/api/kendaraan/selling",
+					"protocol": "http",
+					"host": [
+						"api-kendaraan",
+						"test"
+					],
+					"path": [
+						"api",
+						"kendaraan",
+						"selling"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get kendaraan/reporting",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWtlbmRhcmFhbi50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY2ODQ4MjczNCwiZXhwIjoxNjY4NDg2MzM0LCJuYmYiOjE2Njg0ODI3MzQsImp0aSI6Ill5c2NvcHlLUGJRdUNhWU4iLCJzdWIiOiI2MzcxYTFlZjg5NzQ3Y2IxZDgwNTcwMTIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pF3gAN-FVIu4gzw5ZVdEfQSjqZVM_NK05S8Kl7mOrNs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : \"6372f078033e91d61f073132\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-kendaraan.test/api/kendaraan/reporting",
+					"protocol": "http",
+					"host": [
+						"api-kendaraan",
+						"test"
+					],
+					"path": [
+						"api",
+						"kendaraan",
+						"reporting"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
