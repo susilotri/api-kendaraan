@@ -30,6 +30,8 @@ Route::group(['namespace' => 'Api'], function(){
         Route::get('kendaraan', [KendaraanController::class, 'index']);
         Route::post('kendaraan/store', [KendaraanController::class, 'store']);
         Route::get('kendaraan/find', [KendaraanController::class, 'find']);
+        Route::get('kendaraan/selling', [KendaraanController::class, 'sell']);
+        Route::get('kendaraan/reporting', [KendaraanController::class, 'report']);
     });
 
 });

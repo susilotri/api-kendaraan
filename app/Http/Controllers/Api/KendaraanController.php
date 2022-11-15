@@ -23,24 +23,43 @@ class KendaraanController extends Controller
         return response()->json([$data], 200);
     }
     public function store(Request $request){
-        $kendaraan = new Kendaraan();
-        $kendaraan->tahun = $request->tahun;
-        $kendaraan->warna = $request->warna;
-        $kendaraan->harga = $request->harga;
-        $kendaraan->tipe = $request->tipe;
-        $kendaraan->stock = $request->stok;
-        $kendaraan->save();
 
-        return response()->json([$kendaraan], 200);
+        $kendaraan = Kendaraan::create([
+            "tahun" => $request->tahun,
+            "warna" => $request->warna,
+            "harga" => $request->harga,
+            "stock" => $request->stok,
+            "type" => $request->tipe
+        ]);
+
+        return response()->json($kendaraan, 200);
     }
 
     public function find(Request $request){
-        $data = Kendaraan::where('tipe.motor', 'LIKE', '%'.$request->search.'%')->get();
+        $data = Kendaraan::where('type.kendaraan', 'LIKE', '%'.$request->kendaraan.'%')->get();
 
-        return response()->json([$data], 200);
+        return response()->json($data, 200);
     }
 
-    public function penjualan(Request $request){
+    public function sell(Request $request){
+        $kendaraan = Kendaraan::find($request->id);
+        if($kendaraan):
+            $kendaraan->stock = ((int)$kendaraan->stock - (int)$request->qty);
+            $kendaraan->save();
+            Kendaraan::create([
+                "type" => 'Penjualan',
+                "kendaraan" => $request->id,
+                "qty" => $request->qty
+            ]);
+        endif;
 
+        return response()->json($kendaraan, 200);
     }
+
+    public function report(Request $request){
+        $kendaraan = Kendaraan::find($request->id)->where('type', 'Penjualan')->get();
+
+        return response()->json($kendaraan, 200);
+    }
+
 }
